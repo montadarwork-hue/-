@@ -1,1 +1,1198 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>القَامُوسُ المُطَوَّر</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+
+<style>
+
+/* ========================================= */
+
+:root{
+
+    --bg:#0b1017;
+    --card:#141b24;
+    --soft:#1b2431;
+
+    --primary:#5aa8ff;
+    --primary2:#2877ff;
+
+    --text:#ffffff;
+    --muted:#93a1b5;
+
+    --danger:#ff5d7c;
+
+}
+
+/* ========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        to bottom,
+        #0b1017,
+        #101722
+    );
+
+    color:white;
+
+    min-height:100vh;
+
+}
+
+/* ========================================= */
+
+.app{
+
+    max-width:440px;
+
+    margin:auto;
+
+    padding:20px;
+    padding-bottom:120px;
+
+}
+
+/* ========================================= */
+
+.top{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.logo{
+
+    font-size:30px;
+    font-weight:800;
+
+    line-height:1.5;
+
+}
+
+.logo span{
+
+    color:var(--primary);
+
+}
+
+/* ========================================= */
+
+.icon-btn{
+
+    width:58px;
+    height:58px;
+
+    border:none;
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #17202c,
+        #10161f
+    );
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 12px 25px rgba(0,0,0,.25);
+
+    transition:.25s;
+
+}
+
+.icon-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ========================================= */
+
+.search-box{
+
+    background:var(--card);
+
+    border-radius:28px;
+
+    padding:14px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    margin-bottom:24px;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.28);
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    background:none;
+    border:none;
+    outline:none;
+
+    color:white;
+
+    font-size:17px;
+
+}
+
+.search-box input::placeholder{
+
+    color:var(--muted);
+
+}
+
+/* ========================================= */
+
+.search-btn{
+
+    width:54px;
+    height:54px;
+
+    border:none;
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary2)
+    );
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 12px 25px rgba(40,119,255,.35);
+
+}
+
+/* ========================================= */
+
+.card{
+
+    background:var(--card);
+
+    border-radius:30px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.18);
+
+    animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ========================================= */
+
+.word-top{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.word{
+
+    font-size:38px;
+    font-weight:800;
+
+}
+
+.phonetic{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+}
+
+/* ========================================= */
+
+.speaker{
+
+    width:58px;
+    height:58px;
+
+    border:none;
+    border-radius:18px;
+
+    background:var(--soft);
+
+    color:var(--primary);
+
+    font-size:20px;
+
+    cursor:pointer;
+
+}
+
+/* ========================================= */
+
+.translation{
+
+    font-size:30px;
+    font-weight:700;
+
+    margin-bottom:16px;
+
+}
+
+/* ========================================= */
+
+.badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    background:var(--soft);
+
+    color:var(--primary);
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    margin-bottom:18px;
+
+    font-size:15px;
+
+}
+
+/* ========================================= */
+
+.definition{
+
+    line-height:2;
+
+    color:#d5dcea;
+
+}
+
+/* ========================================= */
+
+.title{
+
+    margin-top:24px;
+    margin-bottom:14px;
+
+    color:var(--primary);
+
+    font-size:18px;
+    font-weight:700;
+
+}
+
+/* ========================================= */
+
+.example{
+
+    background:var(--soft);
+
+    padding:16px;
+
+    border-radius:20px;
+
+    margin-bottom:12px;
+
+    line-height:1.9;
+
+    border-right:4px solid var(--primary);
+
+}
+
+/* ========================================= */
+
+.save-btn{
+
+    width:100%;
+    height:60px;
+
+    border:none;
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff6a88,
+        #ff3d68
+    );
+
+    color:white;
+
+    font-size:18px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+}
+
+/* ========================================= */
+
+.loading{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    color:var(--muted);
+
+}
+
+/* ========================================= */
+
+.empty{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    line-height:2;
+
+    color:var(--muted);
+
+}
+
+/* ========================================= */
+
+.error{
+
+    background:#381f28;
+
+    color:#ffbcc7;
+
+    padding:18px;
+
+    border-radius:20px;
+
+    line-height:1.9;
+
+}
+
+/* ========================================= */
+
+.favorite-item{
+
+    background:var(--soft);
+
+    padding:16px;
+
+    border-radius:18px;
+
+    margin-bottom:12px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.favorite-item button{
+
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:14px;
+
+    background:var(--danger);
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+/* ========================================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+    left:0;
+    right:0;
+
+    background:#101722;
+
+    border-top:
+    1px solid rgba(255,255,255,.05);
+
+    padding:15px;
+
+    backdrop-filter:blur(12px);
+
+}
+
+.nav-inner{
+
+    max-width:440px;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:space-around;
+
+}
+
+.nav-btn{
+
+    background:none;
+    border:none;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+.active{
+
+    color:var(--primary);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <div class="top">
+
+        <div class="logo">
+            القَامُوسُ <span>المُطَوَّر</span>
+        </div>
+
+        <button
+            class="icon-btn"
+            onclick="showFavorites()"
+        >
+            <i class="fa-solid fa-bookmark"></i>
+        </button>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="اكتب كلمة إنجليزية..."
+        >
+
+        <button
+            class="search-btn"
+            onclick="searchWord()"
+        >
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div id="content">
+
+        <div class="empty">
+
+            <h2>
+                أهلاً بك في القَامُوسُ المُطَوَّر
+            </h2>
+
+            <br>
+
+            ترجمة إنجليزية → عربية
+            <br>
+            مع نطق طبيعي وأمثلة احترافية.
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- NAV -->
+
+<div class="bottom-nav">
+
+    <div class="nav-inner">
+
+        <button class="nav-btn active">
+            القاموس
+        </button>
+
+        <button
+            class="nav-btn"
+            onclick="showFavorites()"
+        >
+            المحفوظات
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================================
+   قاموس محلي
+========================================= */
+
+const localWords = {
+
+dog:{
+translation:"كلب",
+part:"اسم",
+definition:"حيوان أليف معروف بولائه للإنسان.",
+phonetic:"/dɔːɡ/",
+examples:[
+"The dog barked loudly.",
+"My dog likes playing outside.",
+"The dog is running in the park."
+]
+},
+
+cat:{
+translation:"قط",
+part:"اسم",
+definition:"حيوان أليف صغير مشهور بالهدوء.",
+phonetic:"/kæt/",
+examples:[
+"The cat is sleeping.",
+"My cat drinks milk.",
+"The cat jumped onto the sofa."
+]
+}
+
+};
+
+
+
+const content =
+document.getElementById("content");
+
+
+
+/* =========================================
+   البحث
+========================================= */
+
+async function searchWord(){
+
+const input =
+document.getElementById("searchInput");
+
+const word =
+input.value.trim().toLowerCase();
+
+if(!word){
+return;
+}
+
+if(!/^[a-zA-Z]+$/.test(word)){
+
+content.innerHTML = `
+<div class="error">
+الرجاء كتابة كلمة باللغة الإنجليزية فقط.
+</div>
+`;
+
+return;
+}
+
+loading();
+
+try{
+
+/* LOCAL */
+
+if(localWords[word]){
+
+render(word,localWords[word]);
+
+return;
+}
+
+/* API */
+
+const response =
+await fetch(
+`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+);
+
+if(response.ok){
+
+const data =
+await response.json();
+
+const entry = data[0];
+
+const definition =
+entry.meanings?.[0]
+?.definitions?.[0]
+?.definition
+|| "No definition.";
+
+const translation =
+await translate(definition);
+
+render(word,{
+
+translation:translation,
+
+part:
+translatePart(
+entry.meanings?.[0]
+?.partOfSpeech
+),
+
+definition:definition,
+
+phonetic:
+entry.phonetic
+|| "/غير متوفر/",
+
+examples:
+extractExamples(entry,word)
+
+});
+
+return;
+}
+
+/* FALLBACK */
+
+const fallback =
+await fetch(
+`https://api.mymemory.translated.net/get?q=${word}&langpair=en|ar`
+);
+
+const fallbackData =
+await fallback.json();
+
+render(word,{
+
+translation:
+fallbackData.responseData.translatedText,
+
+part:"غير معروف",
+
+definition:
+"تم جلب الترجمة عبر الترجمة الذكية.",
+
+phonetic:"/غير متوفر/",
+
+examples:
+generateExamples(word)
+
+});
+
+}catch(err){
+
+content.innerHTML = `
+<div class="error">
+حدث خطأ أثناء الاتصال بالخادم.
+</div>
+`;
+
+}
+
+}
+
+
+
+/* =========================================
+   ترجمة
+========================================= */
+
+async function translate(text){
+
+try{
+
+const response =
+await fetch(
+`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|ar`
+);
+
+const data =
+await response.json();
+
+return data.responseData.translatedText;
+
+}catch{
+
+return text;
+
+}
+
+}
+
+
+
+/* =========================================
+   أمثلة ذكية
+========================================= */
+
+function generateExamples(word){
+
+return [
+
+`I use the word "${word}" every day.`,
+
+`Learning "${word}" improves English.`,
+
+`This sentence contains the word "${word}".`
+
+];
+
+}
+
+
+
+/* =========================================
+   استخراج أمثلة
+========================================= */
+
+function extractExamples(entry,word){
+
+const defs =
+entry.meanings?.[0]
+?.definitions || [];
+
+let examples = [];
+
+defs.forEach(def=>{
+
+if(def.example){
+
+examples.push(def.example);
+
+}
+
+});
+
+if(examples.length){
+
+return examples.slice(0,3);
+
+}
+
+return generateExamples(word);
+
+}
+
+
+
+/* =========================================
+   عرض
+========================================= */
+
+function render(word,data){
+
+content.innerHTML = `
+
+<div class="card">
+
+<div class="word-top">
+
+<div>
+
+<div class="word">
+${word}
+</div>
+
+<div class="phonetic">
+${data.phonetic}
+</div>
+
+</div>
+
+<button
+class="speaker"
+onclick="speak('${word}')"
+>
+
+<i class="fa-solid fa-volume-high"></i>
+
+</button>
+
+</div>
+
+<div class="translation">
+${data.translation}
+</div>
+
+<div class="badge">
+
+<i class="fa-solid fa-language"></i>
+
+${data.part}
+
+</div>
+
+<div class="definition">
+${data.definition}
+</div>
+
+<div class="title">
+أمثلة الاستخدام
+</div>
+
+${data.examples.map(example=>`
+
+<div class="example">
+${example}
+</div>
+
+`).join("")}
+
+</div>
+
+<button
+class="save-btn"
+onclick='saveFavorite(${JSON.stringify({
+word,
+translation:data.translation
+})})'
+>
+
+<i class="fa-solid fa-bookmark"></i>
+
+حفظ الكلمة
+
+</button>
+
+`;
+
+}
+
+
+
+/* =========================================
+   نطق طبيعي
+========================================= */
+
+async function speak(word){
+
+speechSynthesis.cancel();
+
+let voices =
+speechSynthesis.getVoices();
+
+if(!voices.length){
+
+await new Promise(resolve=>{
+
+speechSynthesis.onvoiceschanged =
+resolve;
+
+});
+
+voices =
+speechSynthesis.getVoices();
+
+}
+
+const bestVoice = voices.find(v=>
+
+v.lang.includes("en-US") &&
+
+(
+v.name.includes("Google") ||
+v.name.includes("Samantha") ||
+v.name.includes("Jenny") ||
+v.name.includes("Daniel")
+)
+
+) || voices.find(v=>
+
+v.lang.includes("en")
+
+);
+
+const utterance =
+new SpeechSynthesisUtterance(word);
+
+utterance.voice = bestVoice;
+
+utterance.lang = "en-US";
+
+utterance.rate = 0.9;
+
+utterance.pitch = 1;
+
+speechSynthesis.speak(utterance);
+
+}
+
+
+
+/* =========================================
+   حفظ
+========================================= */
+
+function saveFavorite(item){
+
+let favorites =
+JSON.parse(
+localStorage.getItem("favorites")
+) || [];
+
+const exists =
+favorites.find(
+x=>x.word === item.word
+);
+
+if(exists){
+
+alert("الكلمة محفوظة مسبقاً");
+
+return;
+}
+
+favorites.push(item);
+
+localStorage.setItem(
+"favorites",
+JSON.stringify(favorites)
+);
+
+alert("تم حفظ الكلمة ❤");
+
+}
+
+
+
+/* =========================================
+   عرض المفضلة
+========================================= */
+
+function showFavorites(){
+
+const favorites =
+JSON.parse(
+localStorage.getItem("favorites")
+) || [];
+
+if(!favorites.length){
+
+content.innerHTML = `
+<div class="card">
+
+<div class="empty">
+لا توجد كلمات محفوظة.
+</div>
+
+</div>
+`;
+
+return;
+}
+
+content.innerHTML = `
+
+<div class="card">
+
+<div class="title">
+الكلمات المحفوظة
+</div>
+
+${favorites.map(item=>`
+
+<div class="favorite-item">
+
+<div>
+
+<strong>
+${item.word}
+</strong>
+
+<br>
+
+${item.translation}
+
+</div>
+
+<button
+onclick="removeFavorite('${item.word}')"
+>
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`;
+
+}
+
+
+
+/* =========================================
+   حذف
+========================================= */
+
+function removeFavorite(word){
+
+let favorites =
+JSON.parse(
+localStorage.getItem("favorites")
+) || [];
+
+favorites =
+favorites.filter(
+item=>item.word !== word
+);
+
+localStorage.setItem(
+"favorites",
+JSON.stringify(favorites)
+);
+
+showFavorites();
+
+}
+
+
+
+/* =========================================
+   أقسام الكلام
+========================================= */
+
+function translatePart(part){
+
+const map = {
+
+noun:"اسم",
+
+verb:"فعل",
+
+adjective:"صفة",
+
+adverb:"حال"
+
+};
+
+return map[part] || "غير معروف";
+
+}
+
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+function loading(){
+
+content.innerHTML = `
+<div class="loading">
+جاري البحث داخل القاموس...
+</div>
+`;
+
+}
+
+
+
+/* =========================================
+   ENTER
+========================================= */
+
+document
+.getElementById("searchInput")
+.addEventListener("keypress",function(e){
+
+if(e.key === "Enter"){
+
+searchWord();
+
+}
+
+});
+
+</script>
+
+</body>
+
+          </html>
